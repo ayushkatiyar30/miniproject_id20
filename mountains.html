@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tripzy - Mountain Destinations</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #f3f6fa;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #004d73;
+      color: white;
+      padding: 15px 10%;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: url('https://2.bp.blogspot.com/-qYYxRStYrfA/VNHPLg37-PI/AAAAAAAABCk/k4FARYInjX8/s1600/Kamet.jpg');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      height: 75vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero .overlay {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      animation: fadeInDown 1.5s ease;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Destination Section */
+    .destinations {
+      padding: 70px 10%;
+      background-color: #f3f6fa;
+    }
+
+    .destinations h2 {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 50px;
+      color: #004d73;
+    }
+
+    .destination {
+      display: flex;
+      flex-wrap: wrap;
+      background: white;
+      margin-bottom: 50px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .destination:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .destination img {
+      width: 100%;
+      max-width: 500px;
+      object-fit: cover;
+      height: 350px;
+      transition: transform 0.6s ease;
+    }
+
+    .destination:hover img {
+      transform: scale(1.05);
+    }
+
+    .destination-content {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .destination-content h3 {
+      color: #004d73;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .destination-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .destination-content h4 {
+      margin-top: 20px;
+      color: #0066cc;
+      font-size: 1.2rem;
+    }
+
+    .destination-content ul {
+      margin: 10px 0 0 20px;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      background: #004d73;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .destination {
+        flex-direction: column;
+      }
+
+      .destination img {
+        width: 100%;
+      }
+
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Tripzy</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay">
+      <h2>Majestic Mountain Escapes</h2>
+      <p>Discover India’s most breathtaking hill stations nestled in the Himalayas.</p>
+    </div>
+  </section>
+
+  <!-- Destinations -->
+  <section class="destinations">
+    <h2 data-aos="fade-up">Top Mountain Destinations</h2>
+
+    <!-- Manali -->
+    <div class="destination" data-aos="fade-right">
+      <img src="https://images.pexels.com/photos/15146122/pexels-photo-15146122.jpeg" alt="Manali">
+      <div class="destination-content">
+        <h3>Manali, Himachal Pradesh</h3>
+        <p>Manali is a paradise for nature lovers and adventure seekers. With snow-capped peaks, pine forests, and the Beas River flowing through, it’s a perfect blend of serenity and thrill.</p>
+
+        <h4>How to Reach</h4>
+        <p>✈️ <strong>By Air:</strong> Nearest airport is Bhuntar (50 km).<br>
+        🚆 <strong>By Train:</strong> Joginder Nagar (165 km).<br>
+        🚌 <strong>By Road:</strong> Regular buses from Delhi, Chandigarh & Shimla.</p>
+
+        <h4>Famous Attractions</h4>
+        <ul>
+          <li>Solang Valley – Adventure sports & snow fun</li>
+          <li>Rohtang Pass – Iconic snow-capped mountain pass</li>
+          <li>Hadimba Temple – Ancient wooden temple</li>
+          <li>Old Manali – Cozy cafes & charming streets</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Shimla -->
+    <div class="destination" data-aos="fade-left">
+      <img src="https://images.pexels.com/photos/30550229/pexels-photo-30550229.jpeg" alt="Shimla">
+      <div class="destination-content">
+        <h3>Shimla, Himachal Pradesh</h3>
+        <p>The “Queen of Hills,” Shimla is known for its colonial architecture, charming ridge, and scenic beauty. It’s perfect for romantic getaways and peaceful vacations.</p>
+
+        <h4>How to Reach</h4>
+        <p>✈️ <strong>By Air:</strong> Jubbarhatti Airport (23 km).<br>
+        🚆 <strong>By Train:</strong> Enjoy the Kalka–Shimla Toy Train ride.<br>
+        🚌 <strong>By Road:</strong> Frequent buses from Delhi & Chandigarh.</p>
+
+        <h4>Famous Attractions</h4>
+        <ul>
+          <li>The Ridge – Stunning views & social hub</li>
+          <li>Mall Road – Lively market & cafes</li>
+          <li>Jakhoo Temple – Dedicated to Lord Hanuman</li>
+          <li>Kufri – Winter skiing & adventure park</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Darjeeling -->
+    <div class="destination" data-aos="fade-right">
+      <img src="https://images.pexels.com/photos/18943817/pexels-photo-18943817.jpeg" alt="Darjeeling">
+      <div class="destination-content">
+        <h3>Darjeeling, West Bengal</h3>
+        <p>Known as the “Queen of the Hills,” Darjeeling offers spectacular views of Kanchenjunga, lush tea gardens, and a unique blend of cultures. A serene escape for peace and beauty lovers.</p>
+
+        <h4>How to Reach</h4>
+        <p>✈️ <strong>By Air:</strong> Bagdogra Airport (70 km).<br>
+        🚆 <strong>By Train:</strong> New Jalpaiguri (NJP) Station (65 km).<br>
+        🚌 <strong>By Road:</strong> Well-connected to Siliguri & Gangtok by road.</p>
+
+        <h4>Famous Attractions</h4>
+        <ul>
+          <li>Tiger Hill – Famous sunrise over Kanchenjunga</li>
+          <li>Darjeeling Himalayan Railway – Toy train heritage ride</li>
+          <li>Batasia Loop – Scenic viewpoint & War Memorial</li>
+          <li>Tea Gardens – Visit & taste world-famous Darjeeling tea</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Tripzy | Designed by [ASHUTOSH KUMAR SINGH]</p>
+  </footer>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1200,
+      once: true
+    });
+  </script>
+</body>
+</html>

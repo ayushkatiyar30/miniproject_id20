@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tripzy - Beach Destinations</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #f0f8ff;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #b3b600;
+      color: white;
+      padding: 15px 10%;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: url('https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      height: 75vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero .overlay {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      animation: fadeInDown 1.5s ease;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Destination Section */
+    .destinations {
+      padding: 70px 10%;
+      background-color: #f0f8ff;
+    }
+
+    .destinations h2 {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 50px;
+      color: #0077b6;
+    }
+
+    .destination {
+      display: flex;
+      flex-wrap: wrap;
+      background: white;
+      margin-bottom: 50px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .destination:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .destination img {
+      width: 100%;
+      max-width: 500px;
+      object-fit: cover;
+      height: 350px;
+      transition: transform 0.6s ease;
+    }
+
+    .destination:hover img {
+      transform: scale(1.05);
+    }
+
+    .destination-content {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .destination-content h3 {
+      color: #0077b6;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .destination-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .destination-content h4 {
+      margin-top: 20px;
+      color: #0096c7;
+      font-size: 1.2rem;
+    }
+
+    .destination-content ul {
+      margin: 10px 0 0 20px;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      background: #0077b6;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .destination {
+        flex-direction: column;
+      }
+
+      .destination img {
+        width: 100%;
+      }
+
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Tripzy</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay">
+      <h2>Tropical Beach Escapes</h2>
+      <p>Feel the waves, the sand, and the sunshine at India’s most beautiful beaches.</p>
+    </div>
+  </section>
+
+  <!-- Destinations -->
+  <section class="destinations">
+    <h2 data-aos="fade-up">Top Beach Destinations</h2>
+
+    <!-- Goa -->
+    <div class="destination" data-aos="fade-right">
+      <img src="https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg" alt="Goa Beach">
+      <div class="destination-content">
+        <h3>Goa, India’s Beach Paradise</h3>
+        <p>Goa is the ultimate beach destination, famous for its golden sands, vibrant nightlife, and laid-back coastal charm. From Portuguese heritage to shacks by the sea, Goa blends fun and relaxation perfectly.</p>
+
+        <h4>How to Reach</h4>
+        <p>✈️ <strong>By Air:</strong> Dabolim Airport (29 km from Panaji).<br>
+        🚆 <strong>By Train:</strong> Madgaon & Thivim are the main railway stations.<br>
+        🚌 <strong>By Road:</strong> Well-connected by bus routes from Mumbai, Pune & Bangalore.</p>
+
+        <h4>Famous Attractions</h4>
+        <ul>
+          <li>Baga & Calangute Beach – Water sports & nightlife</li>
+          <li>Fort Aguada – Historic sea fort with panoramic views</li>
+          <li>Anjuna Flea Market – Handicrafts & souvenirs</li>
+          <li>Basilica of Bom Jesus – UNESCO World Heritage Site</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Andaman -->
+    <div class="destination" data-aos="fade-left">
+      <img src="https://images.pexels.com/photos/1320684/pexels-photo-1320684.jpeg" alt="Andaman Islands">
+      <div class="destination-content">
+        <h3>Andaman & Nicobar Islands</h3>
+        <p>Pristine turquoise waters, white sandy beaches, and coral reefs make Andaman a true tropical paradise. It’s a top destination for snorkeling, scuba diving, and underwater adventures.</p>
+
+        <h4>How to Reach</h4>
+        <p>✈️ <strong>By Air:</strong> Veer Savarkar Airport, Port Blair (direct flights from major cities).<br>
+        🚢 <strong>By Sea:</strong> Passenger ships operate from Chennai, Kolkata, and Visakhapatnam.</p>
+
+        <h4>Famous Attractions</h4>
+        <ul>
+          <li>Radhanagar Beach (Havelock) – Asia’s cleanest beach</li>
+          <li>Cellular Jail – A historical landmark of India’s freedom struggle</li>
+          <li>Neil Island – Serene beaches & coral reefs</li>
+          <li>North Bay – Scuba diving & glass-bottom boat rides</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Lakshadweep -->
+    <div class="destination" data-aos="fade-right">
+      <img src="https://media.istockphoto.com/id/1224349638/photo/coconut-fringed-beach.jpg?b=1&s=612x612&w=0&k=20&c=CYSG0Zd0cTTUGBtHueEtmr8wzmxkZuGOU72pQtlN6RE=" alt="Lakshadweep">
+      <div class="destination-content">
+        <h3>Lakshadweep Islands</h3>
+        <p>India’s smallest Union Territory, Lakshadweep is a cluster of 36 serene islands surrounded by the Arabian Sea. It’s ideal for honeymooners and adventurers seeking peace and crystal-clear lagoons.</p>
+
+        <h4>How to Reach</h4>
+        <p>✈️ <strong>By Air:</strong> Agatti Airport connects via Kochi.<br>
+        🚢 <strong>By Sea:</strong> Passenger ships operate from Kochi to various islands.</p>
+
+        <h4>Famous Attractions</h4>
+        <ul>
+          <li>Agatti Island – Stunning lagoon & coral reefs</li>
+          <li>Bangaram Island – Scuba diving & kayaking</li>
+          <li>Minicoy Island – Lighthouse & lagoons</li>
+          <li>Kavaratti – Capital island with marine aquarium</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Tripzy | Designed by [ASHUTOSH KUMAR SINGH]</p>
+  </footer>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1200,
+      once: true
+    });
+  </script>
+</body>
+</html>

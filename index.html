@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tripzy - A Travel Recommendation System</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fdf7f2;
+    }
+
+    header {
+      background: #6a4d8b;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 10%;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    header nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    header nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero Section Background */
+    .hero {
+      background-image: url('https://images.pexels.com/photos/1268855/pexels-photo-1268855.jpeg');
+      background-size: cover;
+      background-position: center;
+      height: 70vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    .hero .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 50px;
+      border-radius: 10px;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    /* Categories Section */
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 50px 10%;
+    }
+
+    .card {
+      border-radius: 15px;
+      overflow: hidden;
+      cursor: pointer;
+      text-align: center;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      background: white;
+      box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin: 15px 0 5px 0;
+      color: #3b2e5a;
+    }
+
+    .card p {
+      margin: 0 15px 15px 15px;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+    }
+
+    /* AI Assistant Section */
+    .ai-assistant {
+      padding: 60px 10%;
+      background: #f4f0ed;
+      text-align: center;
+      border-top: 2px solid #6a4d8b;
+    }
+
+    .ai-assistant h2 {
+      font-size: 2rem;
+      color: #3b2e5a;
+      margin-bottom: 10px;
+    }
+
+    .ai-assistant p {
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+    }
+
+    .chat-box {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      margin: auto;
+      border: 2px solid #6a4d8b;
+      border-radius: 15px;
+      padding: 20px;
+      background: white;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+    }
+
+    #chat-output {
+      height: 300px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 10px;
+      background: #fafafa;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Chat bubbles */
+    .bubble {
+      max-width: 80%;
+      padding: 10px 15px;
+      border-radius: 20px;
+      position: relative;
+      word-wrap: break-word;
+      font-size: 0.95rem;
+    }
+
+    .bubble.user {
+      align-self: flex-end;
+      background: #6a4d8b;
+      color: white;
+      border-bottom-right-radius: 0;
+    }
+
+    .bubble.ai {
+      align-self: flex-start;
+      background: #e0d8f0;
+      color: #3b2e5a;
+      border-bottom-left-radius: 0;
+    }
+
+    .timestamp {
+      font-size: 0.7rem;
+      color: #888;
+      margin-top: 2px;
+    }
+
+    #user-input {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      width: 100%;
+      font-size: 1rem;
+    }
+
+    #send-btn {
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #6a4d8b;
+      color: white;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    #send-btn:hover {
+      background: #5c3b77;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #6a4d8b;
+      color: white;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Tripzy</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay">
+      <h2>Explore Your Next Adventure</h2>
+      <p>Choose your dream destination type below</p>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories">
+    <div class="card" onclick="location.href='mountains.html'">
+      <img src="https://images.pexels.com/photos/67517/pexels-photo-67517.jpeg" alt="Mountains">
+      <h3>Mountains</h3>
+      <p>Find peace and adventure among the majestic peaks.</p>
+    </div>
+
+    <div class="card" onclick="location.href='beaches.html'">
+      <img src="https://images.pexels.com/photos/1450360/pexels-photo-1450360.jpeg" alt="Beaches">
+      <h3>Beaches</h3>
+      <p>Relax by the waves and feel the ocean breeze.</p>
+    </div>
+
+    <div class="card" onclick="location.href='deserts.html'">
+      <img src="https://images.pexels.com/photos/53537/caravan-desert-safari-dune-53537.jpeg" alt="Deserts">
+      <h3>Deserts</h3>
+      <p>Discover the golden sands and mystical beauty of the deserts.</p>
+    </div>
+
+    <div class="card" onclick="location.href='religious.html'">
+      <img src="https://images.pexels.com/photos/16747080/pexels-photo-16747080.jpeg" alt="Religious Destinations">
+      <h3>Religious</h3>
+      <p>Embark on a spiritual journey to sacred destinations worldwide.</p>
+    </div>
+  </section>
+
+  <!-- AI Travel Assistant Section -->
+  <section class="ai-assistant">
+    <h2>Ask Our AI Travel Assistant</h2>
+    <p>Get instant travel suggestions, tips, or destination info!</p>
+
+    <div class="chat-box">
+      <div id="chat-output"></div>
+      <input type="text" id="user-input" placeholder="Ask a travel question..." />
+      <button id="send-btn">Send</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Tripzy | Designed by Ashutosh Kumar Singh, Ayush Katiyar</p>
+  </footer>
+
+  <!-- AI Chat Script -->
+  <script>
+    const sendBtn = document.getElementById('send-btn');
+    const userInput = document.getElementById('user-input');
+    const chatOutput = document.getElementById('chat-output');
+
+    function getTimestamp() {
+      const now = new Date();
+      return now.getHours().toString().padStart(2,'0') + ':' +
+             now.getMinutes().toString().padStart(2,'0');
+    }
+
+    function appendBubble(text, sender) {
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble ' + sender;
+      bubble.textContent = text;
+
+      const timestamp = document.createElement('div');
+      timestamp.className = 'timestamp';
+      timestamp.textContent = getTimestamp();
+      bubble.appendChild(timestamp);
+
+      chatOutput.appendChild(bubble);
+      chatOutput.scrollTop = chatOutput.scrollHeight;
+    }
+
+    function aiTypingEffect(fullText) {
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble ai';
+      const timestamp = document.createElement('div');
+      timestamp.className = 'timestamp';
+      timestamp.textContent = getTimestamp();
+      bubble.appendChild(timestamp);
+      chatOutput.appendChild(bubble);
+      chatOutput.scrollTop = chatOutput.scrollHeight;
+
+      let i = 0;
+      function type() {
+        if (i <= fullText.length) {
+          bubble.textContent = fullText.substring(0, i);
+          bubble.appendChild(timestamp);
+          i++;
+          chatOutput.scrollTop = chatOutput.scrollHeight;
+          setTimeout(type, 20);
+        }
+      }
+      type();
+    }
+
+    sendBtn.addEventListener('click', async () => {
+      const message = userInput.value.trim();
+      if (!message) return;
+
+      appendBubble(message, 'user');
+      userInput.value = '';
+
+      // Show "AI is typing..." while fetching
+      const typingBubble = document.createElement('div');
+      typingBubble.className = 'bubble ai';
+      typingBubble.textContent = 'AI is typing...';
+      chatOutput.appendChild(typingBubble);
+      chatOutput.scrollTop = chatOutput.scrollHeight;
+
+      try {
+        const res = await fetch('/api/ask', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message })
+        });
+        const data = await res.json();
+        chatOutput.removeChild(typingBubble);
+        aiTypingEffect(data.reply);
+      } catch (err) {
+        chatOutput.removeChild(typingBubble);
+        appendBubble('Sorry, something went wrong!', 'ai');
+        console.error(err);
+      }
+    });
+
+    userInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') sendBtn.click();
+    });
+  </script>
+</body>
+</html>
